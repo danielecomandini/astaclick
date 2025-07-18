@@ -23,6 +23,7 @@ function App() {
       <ACIcon icon={Home} color="red" />
       <ACText>HELLO WORLD</ACText>
       <ACButton
+        icon={Home}
         onClick={() => {
           console.log('You have clicked me!');
         }}

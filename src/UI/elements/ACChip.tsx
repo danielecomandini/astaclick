@@ -8,7 +8,6 @@ export interface ACChipProps {
   color?: string;
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
-  onClick: ReactEventHandler;
 }
 
 const ACChip: React.FC<ACChipProps> = ({
@@ -32,7 +31,6 @@ const ACChip: React.FC<ACChipProps> = ({
   return (
     <Chip
       label={label}
-      onClick={() => console.log('Hello')}
       sx={{
         color: color, // colore testo
         borderColor: color, // colore bordo uguale al testo

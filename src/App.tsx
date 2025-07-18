@@ -5,6 +5,7 @@ import ACText from './UI/elements/ACText';
 import ACIcon from './UI/elements/ACIcon';
 import { Home } from 'lucide-react';
 import ACButton from './UI/elements/ACButton';
+import ACAlert from './UI/elements/ACAlert';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       >
         CLICK ME!
       </ACButton>
+      <ACAlert>Welcome!</ACAlert>
     </>
   );
 }

@@ -16,6 +16,7 @@ function App() {
     <div>
       <ACInput
         id="firstName"
+        type="date"
         label="Nome"
         required
         value={formData}

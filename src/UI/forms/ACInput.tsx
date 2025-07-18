@@ -21,6 +21,7 @@ export interface ACInputProps {
   setValue: (updated: Record<string, ACInputField>) => void;
   additionalValidation?: AdditionalValidation;
   color?: string; // colore unico per tutto
+  type?: 'input' | 'password' | 'number' | 'date' | 'time';
 }
 
 const ACInput: React.FC<ACInputProps> = ({
@@ -31,6 +32,7 @@ const ACInput: React.FC<ACInputProps> = ({
   setValue,
   additionalValidation,
   color,
+  type = 'input',
 }) => {
   const field = value[id] || { value: '', valid: true, errorMsg: '' };
   const [isFocused, setIsFocused] = useState(false);
@@ -108,6 +110,7 @@ const ACInput: React.FC<ACInputProps> = ({
   return (
     <TextField
       id={id}
+      type={type}
       label={label || id}
       value={field.value}
       onChange={handleChange}

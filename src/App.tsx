@@ -1,10 +1,10 @@
-import ACCircularProgress from './UI/effects/ACCircularProgress';
-import ACLinearProgress from './UI/effects/ACLinearProgress';
+import { Projector } from 'lucide-react';
+import ACBadge from './UI/elements/ACBadge';
 
 function App() {
   return (
     <div>
-      <ACCircularProgress color="red" />
+      <ACBadge counter={12} icon={Projector} color="black" />
     </div>
   );
 }

@@ -8,14 +8,15 @@ export interface ACChipProps {
   color?: string;
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
-  onClick: ReactEventHandler;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const ACChip: React.FC<ACChipProps> = ({
+const ACRoundButton: React.FC<ACChipProps> = ({
   children,
   color = 'black',
   icon,
   iconPosition = 'left',
+  onClick, // <--- aggiunto qui
 }) => {
   const label = (
     <>
@@ -32,16 +33,16 @@ const ACChip: React.FC<ACChipProps> = ({
   return (
     <Chip
       label={label}
-      onClick={() => console.log('Hello')}
+      onClick={onClick}
       sx={{
-        color: color, // colore testo
-        borderColor: color, // colore bordo uguale al testo
+        color: color,
+        borderColor: color,
         borderStyle: 'solid',
         borderWidth: 1,
       }}
-      variant="outlined" // serve il bordo visibile
+      variant="outlined"
     />
   );
 };
 
-export default ACChip;
+export default ACRoundButton;

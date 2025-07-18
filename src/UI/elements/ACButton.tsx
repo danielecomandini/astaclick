@@ -1,5 +1,5 @@
 import { Button, type ButtonProps } from '@mui/material';
-import type { ComponentType, ReactElement, ReactEventHandler, ReactNode } from 'react';
+import type { ComponentType, ReactEventHandler, ReactNode } from 'react';
 import ACIcon from './ACIcon';
 
 export interface ACButtonProps {

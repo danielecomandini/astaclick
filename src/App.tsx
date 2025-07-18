@@ -1,7 +1,5 @@
 import { Home } from 'lucide-react';
 import ACChip from './UI/elements/ACChip';
-import ACCol from './UI/elements/ACCol';
-import ACRow from './UI/elements/ACRow';
 
 function App() {
   return (

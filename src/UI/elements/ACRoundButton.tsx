@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material';
 import type React from 'react';
-import type { ComponentType, ReactEventHandler, ReactNode } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import ACIcon from './ACIcon';
 
 export interface ACChipProps {

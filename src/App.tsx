@@ -3,11 +3,18 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import ACText from './UI/elements/ACText';
 import ACIcon from './UI/elements/ACIcon';
-import { Home } from 'lucide-react';
+import { Home, Info } from 'lucide-react';
 import ACButton from './UI/elements/ACButton';
-import ACAlert from './UI/elements/ACAlert';
+import ACNotification from './UI/elements/ACNotification';
+import { useState } from 'react';
 
 function App() {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const automaticallyHideNotificationHandler = () => {
+    setShowNotification(false);
+  };
+
   return (
     <>
       <div>
@@ -26,12 +33,19 @@ function App() {
       <ACButton
         icon={Home}
         onClick={() => {
-          console.log('You have clicked me!');
+          setShowNotification(true);
         }}
       >
         CLICK ME!
       </ACButton>
-      <ACAlert>Welcome!</ACAlert>
+      <ACNotification
+        open={showNotification}
+        icon={Info}
+        onClose={automaticallyHideNotificationHandler}
+        duration={1000}
+      >
+        Welcome!
+      </ACNotification>
     </>
   );
 }

@@ -4,6 +4,7 @@ import './App.css';
 import ACText from './UI/elements/ACText';
 import ACIcon from './UI/elements/ACIcon';
 import { Home } from 'lucide-react';
+import ACButton from './UI/elements/ACButton';
 
 function App() {
   return (
@@ -21,6 +22,13 @@ function App() {
 
       <ACIcon icon={Home} color="red" />
       <ACText>HELLO WORLD</ACText>
+      <ACButton
+        onClick={() => {
+          console.log('You have clicked me!');
+        }}
+      >
+        CLICK ME!
+      </ACButton>
     </>
   );
 }

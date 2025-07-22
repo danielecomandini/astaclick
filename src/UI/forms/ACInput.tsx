@@ -32,8 +32,12 @@ const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, colo
         label={label}
         value={value[id].value || ''}
         onChange={onChangeHandler}
+        error={!value[id].valid}
+        helperText={(!value[id].valid && value[id].errMsg) || ''}
         sx={{
+          width: '200px',
           marginBottom: '15px',
+
           '& .MuiOutlinedInput-root': {
             backgroundColor: `${ASTA_CLICK_PALETTE.DEFAULT.PRIMARY}${ASTA_CLICK_PALETTE.INPUT.OPACITY}`,
             '& fieldset': {
@@ -47,17 +51,41 @@ const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, colo
               borderWidth: 3,
               borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
             },
+            '&.Mui-error fieldset': {
+              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            },
+            '&.Mui-error.Mui-focused fieldset': {
+              borderWidth: 3,
+              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            },
           },
+
           '& .MuiOutlinedInput-input': {
             color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
           },
+
+          // ✅ Colore label in stato normale
           '& label': {
             color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
           },
+
+          // ✅ Colore label in stato focused
           '& label.Mui-focused': {
             color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
           },
+
+          // ✅ Colore label in stato errore
+          '& label.Mui-error': {
+            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+          },
+
+          // ✅ Colore helperText in stato normale
           '& .MuiFormHelperText-root': {
+            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+          },
+
+          // ✅ Colore helperText in stato errore
+          '& .MuiFormHelperText-root.Mui-error': {
             color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
           },
         }}

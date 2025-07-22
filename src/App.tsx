@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ACInput, { type ACInputFiled } from './UI/forms/ACInput';
+import ACInput from './UI/forms/ACInput';
 import { validateFormData } from './utils/FormValidator';
 import type { ACInputField } from './UI/forms/ACInputField';
 
@@ -28,7 +28,8 @@ const App = () => {
   const onClickHandler = () => {
     console.clear();
     console.log('onClickHandler...');
-    console.log(validateFormData(formData));
+    const result = validateFormData(formData);
+    setFormData({ ...result.updatedFormData });
   };
 
   return (

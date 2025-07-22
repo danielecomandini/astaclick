@@ -12,6 +12,14 @@ export const validateFormData = (
     const { value, required } = formData[id];
     if (required && value.trim().length === 0) {
       formData[id].valid = false;
+      formData[id].errMsg = `Questo campo e' obbligatorio`;
+    } else if (formData[id].validation) {
+      const { method, errMsg } = formData[id].validation;
+      const result = eval(`(${method})`)(value);
+      if (!result) {
+        formData[id].valid = false;
+        formData[id].errMsg = errMsg;
+      }
     }
   });
 
@@ -20,5 +28,3 @@ export const validateFormData = (
     updatedFormData: formData,
   };
 };
-
-// GSMP FedEX Carrier Split Delivery

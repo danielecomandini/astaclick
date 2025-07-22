@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ACInput, { type ACInputFiled } from './UI/forms/ACInput';
 import { validateFormData } from './utils/FormValidator';
+import type { ACInputField } from './UI/forms/ACInputField';
 
 const App = () => {
   const checkName = (name: string) => {

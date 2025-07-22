@@ -1,13 +1,6 @@
-type ValidationMethod = (value: any) => boolean;
+import type { ACInputField } from '../UI/forms/ACInputField';
 
-export interface ACInputField {
-  value: any;
-  valid: boolean;
-  validation?: {
-    method: ValidationMethod;
-    errMsg: string;
-  };
-}
+type ValidationMethod = (value: any) => boolean;
 
 export const validateFormData = (
   formData: Record<string, ACInputField>
@@ -15,9 +8,19 @@ export const validateFormData = (
   isValid: boolean;
   updatedFormData: Record<string, ACInputField>;
 } => {
-  console.log();
+  let isValid = true;
+
+  Object.keys(formData).forEach((id) => {
+    const { value, required } = formData[id];
+    if (required && value.trim().length === 0) {
+      formData[id].valid = false;
+    }
+  });
+
   return {
-    isValid: true,
+    isValid: isValid,
     updatedFormData: formData,
   };
 };
+
+// GSMP FedEX Carrier Split Delivery

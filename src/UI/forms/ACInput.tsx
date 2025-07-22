@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Box, TextField } from '@mui/material';
 import { ASTA_CLICK_PALETTE } from '../themes/ACPalette';
 import type { ACInputProps } from './ACInputProps';
 
 const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, color }) => {
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    const newValue = e.target.value;
+  const onChangeHandler = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      console.log(e.target.value);
+      const newValue = e.target.value;
 
-    setValue({
-      ...value,
-      [id]: {
-        value: newValue,
-        valid: true,
-      },
-    });
-  };
+      setValue({
+        ...value,
+        [id]: {
+          value: newValue,
+          valid: true,
+        },
+      });
+    },
+    [id, setValue]
+  );
 
   return (
     <Box>

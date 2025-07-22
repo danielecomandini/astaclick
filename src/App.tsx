@@ -26,8 +26,6 @@ const App = () => {
   });
 
   const onClickHandler = () => {
-    console.clear();
-    console.log('onClickHandler...');
     const result = validateFormData(formData);
     setFormData({ ...result.updatedFormData });
   };

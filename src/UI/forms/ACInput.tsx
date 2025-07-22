@@ -1,20 +1,18 @@
 import React, { useCallback } from 'react';
 import { Box, TextField } from '@mui/material';
 import { ASTA_CLICK_PALETTE } from '../themes/ACPalette';
-import type { ACInputProps } from './ACInputProps';
+import type { ACTextInputProps } from './ACInputProps';
 
-const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, color }) => {
+const ACInput: React.FC<ACTextInputProps> = ({ id, label = id, value, setValue, color }) => {
   const onChangeHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(e.target.value);
       const newValue = e.target.value;
+      const current = { ...value[id] };
+      (current.value = newValue), (current.valid = true);
 
       setValue({
         ...value,
-        [id]: {
-          value: newValue,
-          valid: true,
-        },
+        [id]: current,
       });
     },
     [id, setValue]
@@ -27,12 +25,20 @@ const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, colo
         label={label}
         value={value[id].value || ''}
         onChange={onChangeHandler}
+        required={true}
         error={!value[id].valid}
         helperText={(!value[id].valid && value[id].errMsg) || ''}
         sx={{
           width: '200px',
           marginBottom: '15px',
+          '& label.MuiInputLabel-root': {
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
+          },
 
+          // Colora anche l'asterisco * in label required
+          '& label .MuiFormLabel-asterisk': {
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
+          },
           '& .MuiOutlinedInput-root': {
             backgroundColor: `${ASTA_CLICK_PALETTE.INPUT.BG_COLOR}${ASTA_CLICK_PALETTE.INPUT.OPACITY}`,
             '& fieldset': {

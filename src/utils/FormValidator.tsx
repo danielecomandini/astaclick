@@ -25,6 +25,6 @@ export const validateFormData = (
 
   return {
     isValid: isValid,
-    updatedFormData: formData,
+    updatedFormData: { ...formData },
   };
 };

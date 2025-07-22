@@ -31,54 +31,54 @@ const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, colo
           marginBottom: '15px',
 
           '& .MuiOutlinedInput-root': {
-            backgroundColor: `${ASTA_CLICK_PALETTE.DEFAULT.PRIMARY}${ASTA_CLICK_PALETTE.INPUT.OPACITY}`,
+            backgroundColor: `${ASTA_CLICK_PALETTE.INPUT.BG_COLOR}${ASTA_CLICK_PALETTE.INPUT.OPACITY}`,
             '& fieldset': {
               borderWidth: 1,
-              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+              borderColor: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
             },
             '&:hover fieldset': {
-              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+              borderColor: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
             },
             '&.Mui-focused fieldset': {
               borderWidth: 3,
-              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+              borderColor: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
             },
             '&.Mui-error fieldset': {
-              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+              borderColor: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
             },
             '&.Mui-error.Mui-focused fieldset': {
               borderWidth: 3,
-              borderColor: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+              borderColor: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
             },
           },
 
           '& .MuiOutlinedInput-input': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
 
           // ✅ Colore label in stato normale
           '& label': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
 
           // ✅ Colore label in stato focused
           '& label.Mui-focused': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
 
           // ✅ Colore label in stato errore
           '& label.Mui-error': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
 
           // ✅ Colore helperText in stato normale
           '& .MuiFormHelperText-root': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
 
           // ✅ Colore helperText in stato errore
           '& .MuiFormHelperText-root.Mui-error': {
-            color: color || ASTA_CLICK_PALETTE.DEFAULT.SECONDARY,
+            color: color || ASTA_CLICK_PALETTE.INPUT.COLOR,
           },
         }}
       />

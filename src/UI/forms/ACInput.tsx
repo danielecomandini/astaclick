@@ -3,7 +3,14 @@ import { Box, TextField } from '@mui/material';
 import { ASTA_CLICK_PALETTE } from '../themes/ACPalette';
 import type { ACTextInputProps } from './ACInputProps';
 
-const ACInput: React.FC<ACTextInputProps> = ({ id, label = id, value, setValue, color }) => {
+const ACInput: React.FC<ACTextInputProps> = ({
+  id,
+  label = id,
+  value,
+  setValue,
+  color,
+  type = 'text',
+}) => {
   const onChangeHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
@@ -24,6 +31,7 @@ const ACInput: React.FC<ACTextInputProps> = ({ id, label = id, value, setValue, 
         id={id}
         label={label}
         value={value[id].value || ''}
+        type={type}
         onChange={onChangeHandler}
         required={true}
         error={!value[id].valid}

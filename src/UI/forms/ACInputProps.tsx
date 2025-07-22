@@ -8,4 +8,6 @@ export interface ACGenericInputProps {
   color?: string;
 }
 
-export interface ACTextInputProps extends ACGenericInputProps {}
+export interface ACTextInputProps extends ACGenericInputProps {
+  type?: string;
+}

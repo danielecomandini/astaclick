@@ -1,5 +1,3 @@
-import type { PaletteColor } from '@mui/material';
-
 interface PaletteColors {
   PRIMARY: string;
   SECONDARY: string;

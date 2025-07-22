@@ -3,7 +3,7 @@ export interface ACInputField {
   valid: boolean;
   required?: boolean;
   validation?: {
-    method: ValidationMethod;
+    method: (value: any) => boolean;
     errMsg: string;
   };
 }

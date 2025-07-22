@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, TextField } from '@mui/material';
-import type { ACInputField } from '../../utils/FormValidator';
 import { ASTA_CLICK_PALETTE } from '../themes/ACPalette';
+import type { ACInputField } from './ACInputField';
 
 export interface ACInputProps {
   id: string;

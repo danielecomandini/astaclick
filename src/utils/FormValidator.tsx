@@ -1,7 +1,5 @@
 import type { ACInputField } from '../UI/forms/ACInputField';
 
-type ValidationMethod = (value: any) => boolean;
-
 export const validateFormData = (
   formData: Record<string, ACInputField>
 ): {

@@ -1,15 +1,7 @@
 import React from 'react';
 import { Box, TextField } from '@mui/material';
 import { ASTA_CLICK_PALETTE } from '../themes/ACPalette';
-import type { ACInputField } from './ACInputField';
-
-export interface ACInputProps {
-  id: string;
-  label?: string;
-  value: Record<string, ACInputField>;
-  setValue: (newValue: Record<string, ACInputField>) => void;
-  color?: string;
-}
+import type { ACInputProps } from './ACInputProps';
 
 const ACInput: React.FC<ACInputProps> = ({ id, label = id, value, setValue, color }) => {
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

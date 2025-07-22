@@ -1,35 +1,48 @@
 import { useState } from 'react';
-import ACInput, { type ACInputField } from './UI/forms/ACInput';
+import ACInput, { type ACInputFiled } from './UI/forms/ACInput';
+import { validateFormData } from './utils/FormValidator';
 
-function App() {
+const App = () => {
+  const checkName = (name: string) => {
+    return name === 'Daniele';
+  };
+
   const [formData, setFormData] = useState<Record<string, ACInputField>>({
-    firstName: { value: '', valid: true },
-    lastName: { value: '', valid: true },
-    email: { value: '', valid: true },
+    firstName: {
+      value: 'Test',
+      valid: true,
+      required: true,
+      validation: {
+        method: checkName,
+        errMsg: 'Nome non valido. Immettere valore Daniele.',
+      },
+    },
+    lastName: {
+      value: '',
+      valid: true,
+      required: true,
+    },
   });
 
-  const checkName = (name: any) => {
-    return name === 'Daniele';
+  const onClickHandler = () => {
+    console.clear();
+    console.log('onClickHandler...');
+    console.log(validateFormData(formData));
   };
 
   return (
     <div>
       <ACInput
         id="firstName"
-        type="date"
         label="Nome"
-        required
         value={formData}
         setValue={setFormData}
-        additionalValidation={{
-          method: checkName,
-          errorMsg: 'Il nome deve essere Daniele',
-        }}
-        color="orange"
+        color="#00AA00"
       />
-      <button onClick={() => console.log(formData)}>CLICK ME!</button>
+      <ACInput id="lastName" label="Cognome" value={formData} setValue={setFormData} />
+      <button onClick={onClickHandler}>CLICK ME!</button>
     </div>
   );
-}
+};
 
 export default App;

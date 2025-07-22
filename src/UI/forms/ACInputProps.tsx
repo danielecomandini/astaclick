@@ -11,3 +11,5 @@ export interface ACGenericInputProps {
 export interface ACTextInputProps extends ACGenericInputProps {
   type?: string;
 }
+
+export interface ACSelectInputProps extends ACGenericInputProps {}

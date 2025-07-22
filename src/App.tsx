@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ACInput from './UI/forms/ACInput';
 import { validateFormData } from './utils/FormValidator';
 import type { ACInputField } from './UI/forms/ACInputField';
+import ACSelect from './UI/forms/ACSelect';
 
 const App = () => {
   const checkName = (name: string) => {
@@ -23,6 +24,11 @@ const App = () => {
       valid: true,
       required: true,
     },
+    gender: {
+      value: '',
+      valid: true,
+      required: true,
+    },
   });
 
   const onClickHandler = () => {
@@ -40,6 +46,7 @@ const App = () => {
         color="#00AA00"
       />
       <ACInput id="lastName" label="Cognome" value={formData} setValue={setFormData} />
+      <ACSelect id="gender" label="Sesso" value={formData} setValue={setFormData} />
       <button onClick={onClickHandler}>CLICK ME!</button>
     </div>
   );
